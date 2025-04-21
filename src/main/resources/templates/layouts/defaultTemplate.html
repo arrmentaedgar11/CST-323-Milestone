@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CST-339 Spring Boot Activity Application</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.dataTables.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.js"></script>
+
+        <link type="text/css" rel="stylesheet" th:href="@{/css/styles.css}">
+        <link type="text/css" rel="stylesheet" th:href="@{/css/navBar.css}">
+    </head>
+    <body>
+        <div align="center">
+            <div th:replace="layouts/common :: header">My Header</div>
+
+            <section layout:fragment="content">
+                <p>My Body Content</p>
+            </section>
+
+            <div th:replace="layouts/common :: footer">My Footer</div>
+        </div>
+    </body>
+</html>

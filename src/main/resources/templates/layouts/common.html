@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+</head>
+
+<body>
+	<header>
+		<div th:fragment="header">
+			<div class="pb-5 bs-header">
+				<nav class="fixed-top bg-nav mx-5 mt-3 rounded-pill navbar navbar-dark navbar-expand-md">
+					<a class="navbar-brand" href="#">
+						<!-- <img th:src="@{}" alt="" width="40" height="40"> -->
+                         Product Logo Here
+					</a>
+					<div class="navbar-header">
+						<button type="button" data-target="#collapsibleNavbar" data-toggle="collapse"
+							class="navbar-toggler">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+					</div>
+					<div id="collapsibleNavbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="nav-item"><a th:href="@{/}" class="nav-link">Home</a></li>
+							</li>
+						</ul>
+						<ul class="ms-auto navbar-nav d-flex">
+							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
+							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/register}" class="nav-link">Register</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+        <!-- Page Title and Log -->
+        <h2 th:text="${title}">Default Message Text</h2><br /><br /><br />
+	</header>
+</body>
+<!-- Common Footer Fragment -->
+<div th:fragment="footer">
+    <footer>
+        <h5 style="color:rgb(0, 19, 128); text-align: center;position: fixed;bottom:0;width: 100%;"> &copy; 2025 Smart Return Manager | Built for SMBs</h5>
+    </footer>
+</div>
+</html>

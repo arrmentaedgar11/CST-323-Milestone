@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    transition-duration: 0.2s;
+}
+
+html {
+    background: linear-gradient(to right, #f8fbff, #e3f2fd)!important;
+            min-height: 100vh
+}
+
+html body {
+    background: transparent;
+    color: rgb(43, 44, 45);
+}

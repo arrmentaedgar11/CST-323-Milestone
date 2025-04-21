@@ -1,0 +1,29 @@
+/* Variable Colors */
+:root {
+    --nav: rgba(188, 189, 190, 0.603);
+    --tint: rgba(105, 104, 104, 0.7);
+    --text: rgb(234, 231, 231);
+    --border: rgb(31, 31, 31);
+}
+
+.bg-nav {
+    background-color: rgb(141, 194, 247);
+    backdrop-filter: blur(10px);
+}
+
+.bs-header {
+    margin: 20px;
+}
+
+.nav-item {
+    margin-left: 25px;
+}
+
+.navbar .nav-link {
+    font-size: 20px;
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: rgb(27, 70, 85) !important;
+}
