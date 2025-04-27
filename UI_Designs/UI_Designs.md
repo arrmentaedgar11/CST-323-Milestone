@@ -14,7 +14,7 @@ Highlights: On Center design, form is not separated from the rest of the page
 
 ### Version 3
 ![Login v3](LoginV3.drawio.png)
-![Registration v3](RegisterV3.drawio(1).png)
+![Registration v3](RegisterV3.drawio_1_.png)
 
 Highlights: On center design, form is separated from the rest of the webpage
 
