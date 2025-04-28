@@ -14,10 +14,6 @@ import com.gcu.models.ClaimsModel;
 import com.gcu.models.WarrantyModel;
 import jakarta.validation.Valid;
 
-
-
-
-
 @Controller
 public class ManagementController {
     List<WarrantyModel> warranties = new ArrayList<WarrantyModel>();

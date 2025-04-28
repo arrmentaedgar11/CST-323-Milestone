@@ -6,6 +6,10 @@
     --border: rgb(31, 31, 31);
 }
 
+.navbar {
+	font-family: 'Poppins', sans-serif;
+}
+
 .bg-nav {
     background-color: rgb(141, 194, 247);
     backdrop-filter: blur(10px);
