@@ -6,13 +6,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" th:href="@{/css/index.css}">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
- 
+	
 	
 	<style>
-	{
-		box-sizing: border-box;		
-	}
-	
 	body 
 	{
 		font-family: 'Poppins', sans-serif;
@@ -85,6 +81,10 @@
 </head>
 <body>
     <div layout:fragment="content">
+		<div class="bg-light px-4 py-2 d-flex align-items-center justify-content-start border-bottom">
+			<img th:src="@{/images/SRM.png}" alt="Logo" width="100" height="100" class="me-2">
+			<span class="fw-bold text-dark">Smart Return Manager</span>
+		</div>
         <div class="container hero-section text-center">
             <h1 class="display-5 fw-bold">Welcome to Smart Return Manager</h1>
             <p class="lead">Empowering small and midsize businesses with customer-friendly return and exchange management tools.</p>
