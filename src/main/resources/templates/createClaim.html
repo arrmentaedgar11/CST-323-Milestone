@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xlmns:th="https://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+
     <head>
         <meta charset="UTF-8">
         <title>Milestone - Create Claims</title>
@@ -15,7 +15,7 @@
             <table>
                 <tr>
                     <td>Business Name:</td><td><input type="text" th:field="*{businessName}"/></td>
-                    <td><h5 style="color:red" th:if="${#fields.hasErrors('businessName')}" th:errors="*{businessName}">Order Number Error</h5></td>
+                    <td><h5 style="color:red" th:if="${#fields.hasErrors('businessName')}" th:errors="*{businessName}">Business Name Error</h5></td>
                 </tr>
 
                 <tr>
