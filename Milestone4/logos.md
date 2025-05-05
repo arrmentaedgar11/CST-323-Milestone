@@ -3,19 +3,19 @@
 ---
 ## Logo 1: 
 
-![Logo w/Truck Blue Letters](SmartReturnManager1.PNG "Logo w/Truck Blue Letters")
+![Logo w/Truck Blue Letters](https://gitlab.com/cst-3391/milestone/-/blob/main/Milestone4/SmartReturnManager1.png "Logo w/Truck Blue Letters")
 
 ---
 ## Logo 2: 
 
-![Logo w/Box](SmartReturnManager2.PNG "Logo w/Box")
+![Logo w/Box](/milestone/Milestone4/SmartReturnManager2.PNG "Logo w/Box")
 
 ---
 ## Logo 3: 
 
-![Logo w/Plane](SmartReturnManager3.PNG "Logo w/Plane")
+![Logo w/Plane](/milestone/Milestone4/SmartReturnManager3.PNG "Logo w/Plane")
 
 ---
 ## Logo 4: 
 
-![Logo w/Truck](SmartReturnManager4.PNG "Logo w/Truck")
+![Logo w/Truck](/milestone/Milestone4/SmartReturnManager4.PNG "Logo w/Truck")
