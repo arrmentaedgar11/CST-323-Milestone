@@ -1,6 +1,7 @@
-CREATE TABLE products (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    price DOUBLE,
-    description TEXT
-);
+CREATE TABLE `products` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
