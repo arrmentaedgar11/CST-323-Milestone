@@ -2,33 +2,47 @@ package com.gcu.models;
 
 import java.math.BigDecimal;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
+@Table("warranties")//Maps warranties table to DB
 public class WarrantyModel {
+    @Id
     private int id;
+    @Column("warrantyName")
     @NotNull(message="Please enter Warranty Name")
     @Size(min=1, max=32, message="Warranty Name must be between 1 and 32 characters")
     private String warrantyName;
+    @Column("warrantyDesc")
     @NotNull(message="Please enter Warranty Description")
     @Size(min=1, max=32, message="Warranty description must be between 1 and 128 characters")
     private String warrantyDesc;
+    @Column("productCategory")
     @NotNull(message="Please enter Product Category")
     @Size(min=1, max=32, message="Product Category must be between 1 and 32 characters")
     private String productCategory;
+    @Column("restockFees")
     @NotNull(message="Please enter a Restock Fee")
     @PositiveOrZero(message="Please enter a Restock Fee")
     private BigDecimal restockFees;
+    @Column("email")
     @NotNull(message="Please enter an email")
     @Email(message="Please enter an email")
     private String email;
+    @Column("phoneNumber")
     @PositiveOrZero(message="Please enter a valid phone number.")
     private String phoneNumber;
+    @Column("returnInstructions")
     @NotNull
     @Size(min=1, max=128, message="Product Category must be between 1 and 128 characters")
     private String returnInstructions;
+    @Column("expirationDate")
     @NotNull
     @PositiveOrZero
     private int expirationDate;

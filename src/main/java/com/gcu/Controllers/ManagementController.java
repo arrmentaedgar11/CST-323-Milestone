@@ -1,26 +1,35 @@
 package com.gcu.Controllers;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.gcu.Repository.WarrantiesRepository;
 import com.gcu.models.ClaimsModel;
 import com.gcu.models.WarrantyModel;
 import jakarta.validation.Valid;
 
 @Controller
 public class ManagementController {
-    List<WarrantyModel> warranties = new ArrayList<WarrantyModel>();
-    List<ClaimsModel> claims = new ArrayList<ClaimsModel>();
+	@Autowired
+    private WarrantiesRepository warrantiesRepository;
+
+    @Autowired
+	private WarrantiesService warrantiesService;
+
+	@Autowired
+	private ClaimsService claimsService;
 
     @GetMapping("/management")
     public String displayWarranties(Model model) {
+        List<ClaimsModel> claims = claimsService.getAllClaims();
+        List<WarrantyModel> warranties = warrantiesService.getAllWarranties();
         model.addAttribute("title", "Management Form");
         model.addAttribute("warranties", warranties);
         model.addAttribute("claims", claims);
@@ -53,13 +62,13 @@ public class ManagementController {
     }
     
     @PostMapping("/addNewWarranty")
-    public String addNewWarranty(@Valid WarrantyModel warrantyModel, BindingResult bindingResult, Model model) {
+    public String addNewWarranty(@Valid @ModelAttribute WarrantyModel warrantyModel, BindingResult bindingResult, Model model) {
 
         if(bindingResult.hasErrors()){
             model.addAttribute("title", "Create Warranty Form");
             return "createWarranty";
         }
-        warranties.add(warrantyModel);
+        warrantiesRepository.save(warrantyModel);
         return "redirect:/management";
     }
     
