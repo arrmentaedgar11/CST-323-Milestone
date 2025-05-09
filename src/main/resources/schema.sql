@@ -8,14 +8,14 @@ CREATE TABLE `products` (
 
 CREATE TABLE claims (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    businessName VARCHAR(100),
-    orderNumber BIGINT,
-    returnReason VARCHAR(100),
+    businessName VARCHAR(32) NOT NULL,
+    orderNumber BIGINT NOT NULL,
+    returnReason VARCHAR(64) NOT NULL,
     claimStatus VARCHAR(100),
-    preferredResolution VARCHAR(250),
-    businessResponse VARCHAR(100),
+    preferredResolution VARCHAR(32) NOT NULL,
+    businessResponse VARCHAR(255),
     approvedResolutionType VARCHAR(100),
-    returnInstructions VARCHAR(100),
+    returnInstructions VARCHAR(255),
     claimActive BOOLEAN
 );
 

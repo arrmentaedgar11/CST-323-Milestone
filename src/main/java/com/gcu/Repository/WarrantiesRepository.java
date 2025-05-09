@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.gcu.models.WarrantyModel;
 
 @Repository
-public interface WarrantiesRepository extends CrudRepository<WarrantyModel, Long>{
+public interface WarrantiesRepository extends CrudRepository<WarrantyModel, Integer>{
 	
 	List<WarrantyModel> findAll();
 

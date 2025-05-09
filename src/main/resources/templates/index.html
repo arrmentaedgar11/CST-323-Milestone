@@ -20,7 +20,7 @@
 		background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
 		color:white;
 		border-radius: 12px;
-		margin-top: 30px;
+		margin-top: 0;
 	}
 	.feature-card {
 		border:none;
@@ -32,6 +32,27 @@
 	
 	.feature-card h5 {
 		margin-bottom: 12px;
+	}
+	
+	.feature-card p {
+		font-size: 1.1 rem;
+		line-height: 1.6;
+	}
+	
+	.feature-card ul {
+		padding-left: 1.2rem;
+		text-align:left;
+	}
+	
+	.feature-card ul li {
+		font-size: 1.05rem;
+		margin-bottom:0.75rem;
+	}
+	
+	.feature-card:hover {
+		transform:translateY(-5px);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		box-shawdow: 0 6px 18px rgba(0, 0, 0, 0.15);
 	}
 	
 	.btn-primary {
@@ -81,9 +102,9 @@
 </head>
 <body>
     <div layout:fragment="content">
-		<div class="bg-light px-4 py-2 d-flex align-items-center justify-content-start border-bottom">
-			<img th:src="@{/images/SRM.png}" alt="Logo" width="100" height="100" class="me-2">
-			<span class="fw-bold text-dark">Smart Return Manager</span>
+		<div class="bg-light px-4 py-2 d-flex align-items-center justify-content-start border-bottom" style="margin-top: 0;">
+			<img th:src="@{/images/SRM.png}" alt="Smart Return Manager Logo" width="100" height="100" class="me-2">
+			<span class="fw-bold text-dark" style="font-size: 1.5rem;">Smart Return Manager</span>
 		</div>
         <div class="container hero-section text-center">
             <h1 class="display-5 fw-bold">Welcome to Smart Return Manager</h1>
@@ -97,21 +118,36 @@
         <div class="container my-5">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card feature-card p-3">
-                        <h5>Flexible Return Policy Control</h5>
-                        <p>Define warranty periods, restocking fees, and eligibility with ease.</p>
+                    <div class="card feature-card p-4">
+                        <h3 class="fw-bold text-primary">Total Control Over Your Return Policies</h3>
+                        <p class="text-muted mb-3"><b>Customize return windows, restocking fees, and eligibility rules to match your brand's promise</b></p>
+						<ul class="ps-3 mb-0">
+							<li><i class="bi bi-check-circle text-success me-2"></i>Set return timeframes and warranty durations with precision</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Define product-specific return eligibility</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Automate approval rules to reduce manual workload</li>
+						</ul>
+                   </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4">
+                        <h3 class="fw-bold text-primary">Seamless E-Commerce Integration</h3>
+                        <p class="text-muted mb-3"><b>Instantly sync with Shopify or WooCommerce — no coding required.</b></p>
+						<ul class="ps-3 mb-0">
+							<li><i class="bi bi-check-circle text-success me-2"></i>Auto-import orders and product data in real time</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Centralized dashboard for all post-purchase requests</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Minimal setup, maximum compatibility with your existing store</li>
+						</ul>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card feature-card p-3">
-                        <h5>Shopify & WooCommerce Integration</h5>
-                        <p>Connect directly to your e-commerce store and manage returns in one place.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card feature-card p-3">
-                        <h5>Customer Satisfaction Dashboard</h5>
-                        <p>Monitor feedback, message customers directly, and improve trust through transparency.</p>
+                    <div class="card feature-card p-4">
+                        <h3 class="fw-bold text-primary">Real-Time Customer Insight Dashboard</h3>
+                        <p class="text-muted mb-3"><b>Track return reasons, resolution speed, and satisfaction levels — all in one place.</b></p>
+						<ul class="ps-3 mb-0">
+							<li><i class="bi bi-check-circle text-success me-2"></i>Visual analytics on return trends and issues</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Two-way customer messaging for faster resolutions</li>
+							<li><i class="bi bi-check-circle text-success me-2"></i>Display verified feedback to build trust with new buyers</li>
+						</ul>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
+<style>
+	
+	* {
+	    box-sizing: border-box;
+	            transition-duration: 0.2s;
+	        }
+	
+	body {
+	    margin: 0;
+	    padding-bottom: 60px; /* space for the footer */
+		background: linear-gradient(to right, #f8fbff, #e3f2fd) !important;
+		color: rgb(43, 44, 45);
+	    position: relative;
+	    min-height: 100vh;
+		}
+		
+	.centered-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding-top: 120px;
+	}
+	
+    footer {
+        background-color: #f1f1f1;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    footer h5 {
+        color: rgb(0, 19, 128);
+        margin: 0;
+    }
+	
+	.navbar {
+		padding: 0.5rem 1rem;
+	}
+	
+	.navbar-brand img {
+		height: 60px;
+	}
+</style>
+
+
 </head>
 
 <body>
 	<header>
 		<div th:fragment="header">
-			<div class="pb-5 bs-header">
-				<nav class="fixed-top bg-nav mx-5 mt-3 rounded-pill navbar navbar-dark navbar-expand-md align-items-center">
+			<div class="pb-0 bs-header">
+				<nav class="fixed-top bg-nav mx-5 mt-1 rounded-pill navbar navbar-dark navbar-expand-md align-items-center">
 					<a class="navbar-brand" href="#">
 						 <img th:src="@{/images/SRM.png}" alt="Logo" width="100" height="100" class="d-inline-block align-middle"> 
 					</a>
@@ -25,7 +80,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 					<div id="collapsibleNavbar" class="collapse navbar-collapse">
 						<ul class="nav navbar-nav justify-content-center w-25">
 							<li class="nav-item col-3"><a th:href="@{/}" class="nav-link">Home</a></li>
-							</li>
+							
 						</ul>
 						<ul class="ms-auto navbar-nav d-flex">
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
@@ -38,14 +93,22 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 				</nav>
 			</div>
 		</div>
+		
         <!-- Page Title and Log -->
-        <h2 th:text="${title}">Default Message Text</h2><br /><br /><br />
+		<div class="container" style="padding-top: 100px;">
+        <h1 th:text="${title}">Default Message Text</h1><br/>
+			</div>
 	</header>
-</body>
+	
+	<section layout:fragment="content">
+	</section>
+
+
 <!-- Common Footer Fragment -->
 <div th:fragment="footer">
     <footer>
-        <h5 style="color:rgb(0, 19, 128); text-align: center;position: fixed;bottom:0;width: 100%;"> &copy; 2025 Smart Return Manager | Built for SMBs</h5>
+        <h5> &copy; 2025 Smart Return Manager | Built for SMBs</h5>
     </footer>
 </div>
+</body>
 </html>

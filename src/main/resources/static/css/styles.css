@@ -5,10 +5,14 @@
 
 html {
     background: linear-gradient(to right, #f8fbff, #e3f2fd)!important;
-            min-height: 100vh
+            height: 100vh
 }
 
-html body {
+ body {
     background: transparent;
     color: rgb(43, 44, 45);
+	margin: 0;
+	padding-bottom: 0;
+	min-height: 100vh; 
+	position: relative;
 }
