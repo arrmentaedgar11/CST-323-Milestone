@@ -18,4 +18,8 @@ public class WarrantiesService {
 		return warrantiesRepository.findAll();
 	}
 
+	public WarrantyModel getWarrantyById(int id) {
+		return warrantiesRepository.findById(id).orElse(null);
+	}
+
 }

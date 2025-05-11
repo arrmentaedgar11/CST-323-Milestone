@@ -28,7 +28,7 @@
                 </tr>
     
                 <tr>
-                    <td>Restock Fees:</td><td><input type="text" th:field="*{restockFees}"/></td>
+                    <td>Restock Fees:</td><td><span>$</span><input type="number" th:field="*{restockFees}" step="0.01"/></td>
                     <td><h5 style="color:red" th:if="${#fields.hasErrors('restockFees')}" th:errors="*{restockFees}">Restock Fees Error</h5></td>
                 </tr>
 
@@ -38,7 +38,7 @@
                 </tr>
 
                 <tr>
-                    <td>Phone Number:</td><td><input type="text" th:field="*{phoneNumber}"/></td>
+                    <td>Phone Number:</td><td><input type="text" th:field="*{phoneNumber}" pattern="\(\d{3}\) \d{3}-\d{4}" title="Phone number must be the in the format (555) 555-5555"/></td>
                     <td><h5 style="color:red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</h5></td>
                 </tr>
 
@@ -48,7 +48,7 @@
                 </tr>
 
                 <tr>
-                    <td>Expiration Date:</td><td><input type="text" th:field="*{expirationDate}"/></td>
+                    <td>Days to Accept Return:</td><td><input type="text" th:field="*{expirationDate}"/></td>
                     <td><h5 style="color:red" th:if="${#fields.hasErrors('expirationDate')}" th:errors="*{expirationDate}">Expiration Date Error</h5></td>
                 </tr>
                 <tr>

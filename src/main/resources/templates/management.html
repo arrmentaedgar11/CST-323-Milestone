@@ -99,6 +99,10 @@
                         <td th:text="${warranty.phoneNumber}">1</td>
                         <td th:text="${warranty.returnInstructions}">1</td>
                         <td th:text="${warranty.expirationDate}">1</td>
+						
+						<!--Edit Link-->
+						<a th:href="@{/editWarranty/{id}(id=${warranty.id})}" class="btn btn-sm btn-warning"> Edit Warranty</a>
+						
                     </tr>
                 </tbody>
             </table>
@@ -132,6 +136,9 @@
                         <td th:text="${claim.approvedResolutionType}">1</td>
                         <td th:text="${claim.returnInstructions}">1</td>
                         <td th:text="${claim.claimActive}">1</td>
+						
+						<!--Edit Link-->
+						<a th:href="@{/editClaimBusiness/{id}(id=${claim.id})}" class="btn btn-sm btn-warning"> Edit Claim</a>
                     </tr>
                 </tbody>
             </table>
