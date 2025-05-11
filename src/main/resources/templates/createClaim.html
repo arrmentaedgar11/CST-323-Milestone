@@ -11,7 +11,7 @@
     </head>
 <body>
     <div layout:fragment="content">
-        <form action="#" th:action="@{addNewClaim}" th:object="${claimsModel}" method="post">
+        <form th:action="@{claims/add}" th:object="${claimsModel}" method="post">
             <table>
                 <tr>
                     <td>Business Name:</td><td><input type="text" th:field="*{businessName}"/></td>

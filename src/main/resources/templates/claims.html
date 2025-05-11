@@ -17,12 +17,6 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
-			
-			.claims-table {
-				width: 100%;
-				height: 600px;
-				border-collapse: collapse;
-			}
 						
 			.table th, .table td {
 				padding: 16px;
@@ -58,11 +52,7 @@
 				margin-left: auto;
 				margin-right: auto;	
 			}
-			
-			.button:hover {
-				background-color: #0056b3;
-			}
-			
+
 		</style>	
     </head>
 	
@@ -103,7 +93,14 @@
 							<td th:text="${claim.businessResponse}">1</td>
 							<td th:text="${claim.approvedResolutionType}">1</td>
 							<td th:text="${claim.returnInstructions}">1</td>
-							<td th:text="${claim.claimActive}">1</td>				            
+							<td th:text="${claim.claimActive}">1</td>	
+							
+							<!-- Edit Link -->
+							<a th:href="@{/claims/edit/{id}(id=${claim.id})}" class="btn btn-secondary">Edit</a>
+							<!-- Delete Link -->
+							<a th:href="@{/claims/delete/{id}(id=${claim.id})}" class="btn btn-danger"
+							onclick="return confirm('Are you sure you want to delete this claims?)">Delete</a>
+										            
 				        </tr>
 				    </tbody>
 				</table>

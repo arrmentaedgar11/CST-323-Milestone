@@ -13,8 +13,8 @@
 	align-items:center;
 	justify-content: space-between;
 	font-family: 'Poppins', sans-serif;
-	margin-bottom: 0;
-	padding-bottom: 0;
+	margin-bottom: 10;
+	padding-bottom: 10;
 }
 
 .home-item {
@@ -40,7 +40,7 @@
 .bs-header {
     margin: 0;
 	padding: 10px;
-	padding-bottom: 0px;
+	padding-bottom: 5px;
 }
 
 .nav-item {
