@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gcu.Repository.WarrantiesRepository;
@@ -36,23 +37,52 @@ public class ManagementController {
         return "management";
     }
     
-    //TO:DO 
-    @PostMapping("/editWarranty")
-    public void editWarrantyString(@Valid WarrantyModel warrantyModel, BindingResult bindingResult, Model model) {
-
-        if(bindingResult.hasErrors()){
-            model.addAttribute("title", "Edit Warranty Form");
+    @GetMapping("/editWarranty/{id}")
+    public String editWarranty(@PathVariable("id") int id, Model model) {
+        WarrantyModel warranty = warrantiesService.getWarrantyById(id);
+        if (warranty == null) {
+            // Handle the case where the warranty is not found
+            model.addAttribute("error", "Warranty not found");
+            return "errorPage";  // Redirect to an error page if necessary
         }
+        model.addAttribute("warrantyModel", warranty);
+        model.addAttribute("title", "Edit Warranty");
+        return "editWarranty";
+    }
+    
+    //POST
+    @PostMapping("/editWarranty/{id}")
+    public String editWarrantyString(@PathVariable("id") int id, @Valid WarrantyModel warrantyModel, BindingResult bindingResult, Model model) {
+        if(bindingResult.hasErrors()){
+            model.addAttribute("title", "Edit Warranty ");
+            return "editWarranty";
+        }
+        warrantyModel.setId(id);
+        warrantiesRepository.save(warrantyModel);
+        return "redirect:/management";
     }
 
-    //TO:DO
-   @PostMapping("/editClaim")
-   public void postMethodName(@Valid ClaimsModel claimsModel, BindingResult bindingResult, Model model) {
-    if(bindingResult.hasErrors()){
-        model.addAttribute("title", "Edit Claims Form");
+    @GetMapping("/editClaimBusiness/{id}")
+    public String editClaimBusiness(@PathVariable("id") Long id, Model model) {
+    	ClaimsModel claim = claimsService.getClaimById(id);
+    	model.addAttribute("title", "Edit Claims (Business)");
+    	model.addAttribute("claimsModel", claim);
+    	return "editClaimBusiness";
     }
-   }
-   
+    
+  
+    @PostMapping("/editClaimBusiness/{id}")
+    public String updateClaimBusiness(@PathVariable("id") Long id, 
+                                       @Valid @ModelAttribute("claimsModel") ClaimsModel claimsModel, 
+                                       BindingResult bindingResult, 
+                                       Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("title", "Edit Claims (Business)");
+            return "editClaimBusiness";
+        }
+        claimsService.updateClaim(claimsModel);
+        return "redirect:/management";
+    }  
 
     @GetMapping("/createWarranty")
     public String createWarranty(Model model) {
@@ -63,7 +93,6 @@ public class ManagementController {
     
     @PostMapping("/addNewWarranty")
     public String addNewWarranty(@Valid @ModelAttribute WarrantyModel warrantyModel, BindingResult bindingResult, Model model) {
-
         if(bindingResult.hasErrors()){
             model.addAttribute("title", "Create Warranty Form");
             return "createWarranty";

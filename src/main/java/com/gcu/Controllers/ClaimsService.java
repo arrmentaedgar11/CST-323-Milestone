@@ -17,5 +17,17 @@ public class ClaimsService {
 	public List<ClaimsModel> getAllClaims() {
 		return claimsRepository.findAll();
 	}
+	
+	public ClaimsModel getClaimById(Long id) {
+		return claimsRepository.findById(id).orElse(null);
+	}
+	
+	public void updateClaim(ClaimsModel claim) {
+		claimsRepository.save(claim);
+	}
+	
+	public void deleteClaim(Long id) {
+		claimsRepository.deleteById(id);
+	}
 
 }

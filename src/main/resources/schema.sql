@@ -30,3 +30,11 @@ CREATE TABLE warranties (
     returnInstructions VARCHAR(250),
     expirationDate BIGINT
 );
+
+SELECT JSON_OBJECT(
+    'id', id,
+    'name', name,
+    'price', price,
+    'description', description
+) AS product_json
+FROM products;
