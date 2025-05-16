@@ -83,11 +83,18 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							
 						</ul>
 						<ul class="ms-auto navbar-nav d-flex">
+							<!--Guest Only-->
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/register}" class="nav-link">Register</a></li>
 							<!--Claims and Manage will only be visible to authenticated users-->
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/claims}" class="nav-link">Claims</a></li>
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/management}" class="nav-link">Manage</a></li>
+							<!-- Logout for Authenticated Users -->
+							<li sec:authorize="isAuthenticated()" class="nav-item">
+							    <form th:action="@{/logout}" method="post" style="display: inline;">
+							        <button type="submit" class="btn btn-link nav-link" style="padding: 0; border: none; background: none;">Logout</button>
+							    </form>
+							</li>
 						</ul>
 					</div>
 				</nav>
