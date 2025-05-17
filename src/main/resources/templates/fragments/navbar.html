@@ -1,7 +1,7 @@
 <!-- fragments/navbar.html -->
 <div th:fragment="navbar">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="/" th:text="${appName}">Smart Return</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -19,7 +19,7 @@
 
           <!-- ADMIN ONLY -->
           <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-            <a class="nav-link" th:href="@{/management}">Management</a>
+            <a class="nav-link" href="/management">Management</a>
           </li>
 
           <!-- USER ONLY -->
@@ -28,9 +28,11 @@
           </li>
 
           <!-- Authenticated users -->
-          <li class="nav-item" sec:authorize="isAuthenticated()">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
+		  <li sec:authorize="isAuthenticated()" class="nav-item" style="margin-right: 16px;">
+		      <form th:action="@{/logout}" method="post" style="display: inline;">
+		          <button type="submit" class="btn btn-link nav-link" style="padding: 0; border: none; background: none; margin-left: -16px;">Logout</button>
+		      </form>
+		  </li>
 
           <!-- Guests only -->
           <li class="nav-item" sec:authorize="isAnonymous()">

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" 
+		xmlns:th="http://www.thymeleaf.org" 
+		xmlns:layout="https://www.ultraq.net.nz/thymeleaf/layout"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security" 
+		layout:decorate="layouts/defaultTemplate">
 
 <head>
 	<meta charset="UTF-8">
@@ -87,12 +89,12 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
 							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/register}" class="nav-link">Register</a></li>
 							<!--Claims and Manage will only be visible to authenticated users-->
-							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/claims}" class="nav-link">Claims</a></li>
-							<li sec:authorize="!isAuthenticated" class="nav-item"><a th:href="@{/management}" class="nav-link">Manage</a></li>
+							<li sec:authorize="hasRole('USER')" class="nav-item"><a th:href="@{/claims}" class="nav-link">Claims</a></li>
+							<li sec:authorize="hasRole('ADMIN')" class="nav-item"><a th:href="@{/management}" class="nav-link">Manage</a></li>
 							<!-- Logout for Authenticated Users -->
-							<li sec:authorize="isAuthenticated()" class="nav-item">
+							<li sec:authorize="isAuthenticated()" class="nav-item" style="margin-right: 16px;">
 							    <form th:action="@{/logout}" method="post" style="display: inline;">
-							        <button type="submit" class="btn btn-link nav-link" style="padding: 0; border: none; background: none;">Logout</button>
+							        <button type="submit" class="btn btn-link nav-link" style="padding: 0; border: none; background: none; margin-left: -16px;">Logout</button>
 							    </form>
 							</li>
 						</ul>
@@ -102,7 +104,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 		</div>
 		
         <!-- Page Title and Log -->
-		<div class="container" style="padding-top: 100px;">
+		<div class="container-fluid" style="padding-top: 100px;">
         <h1 th:text="${title}">Default Message Text</h1><br/>
 			</div>
 	</header>
@@ -114,7 +116,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <!-- Common Footer Fragment -->
 <div th:fragment="footer">
     <footer>
-        <h5> &copy; 2025 Smart Return Manager | Built for SMBs</h5>
+        <h6> &copy; 2025 Smart Return Manager | Built for SMBs</h6>
     </footer>
 </div>
 </body>

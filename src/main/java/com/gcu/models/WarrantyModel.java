@@ -45,10 +45,10 @@ public class WarrantyModel {
     @Column("expirationDate")
     @NotNull
     @PositiveOrZero
-    private int expirationDate;
+    private Integer expirationDate;
 
     public WarrantyModel(int id, String warrantyName, String warrantyDesc, String productCategory, BigDecimal restockFees, String email,
-            String phoneNumber, String returnInstructions, int expirationDate) {
+            String phoneNumber, String returnInstructions, Integer expirationDate) {
         this.id = id;
         this.warrantyName = warrantyName;
         this.warrantyDesc = warrantyDesc;
@@ -99,10 +99,10 @@ public class WarrantyModel {
     public void setReturnInstructions(String returnInstructions) {
         this.returnInstructions = returnInstructions;
     }
-    public int getExpirationDate() {
+    public Integer getExpirationDate() {
         return expirationDate;
     }
-    public void setExpirationDate(int expirationDate) {
+    public void setExpirationDate(Integer expirationDate) {
         this.expirationDate = expirationDate;
     }
 
