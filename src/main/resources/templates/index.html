@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<html xmlns:th="http://www.thymeleaf.org" xlmns:th="https://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" layout:decorate="layouts/defaultTemplate">
+
+
 <head>
     <meta charset="UTF-8">
     <title>Smart Return Manager - Home</title>
@@ -73,6 +75,8 @@
 	</style>
 </head>
 <body>
+	<div th:replace="fragments/navbar :: *"></div>
+
     <div layout:fragment="content">
 		<div class="bg-light px-4 py-2 d-flex align-items-center justify-content-start border-bottom" style="margin-top: 0;">
 			<img th:src="@{/images/SRM.png}" alt="Smart Return Manager Logo" width="100" height="100" class="me-2">

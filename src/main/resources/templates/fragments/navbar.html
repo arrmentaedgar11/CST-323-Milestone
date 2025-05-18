@@ -1,0 +1,46 @@
+<!-- fragments/navbar.html -->
+<div th:fragment="navbar">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/" th:text="${appName}">Smart Return</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+          <!-- Always show Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="/" th:text="'Home'">Home</a>
+          </li>
+
+          <!-- ADMIN ONLY -->
+          <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+            <a class="nav-link" href="/management">Management</a>
+          </li>
+
+          <!-- USER ONLY -->
+          <li class="nav-item" sec:authorize="hasRole('USER')">
+            <a class="nav-link" href="/claims">Claims</a>
+          </li>
+
+          <!-- Authenticated users -->
+		  <li sec:authorize="isAuthenticated()" class="nav-item" style="margin-right: 16px;">
+		      <form th:action="@{/logout}" method="post" style="display: inline;">
+		          <button type="submit" class="btn btn-link nav-link" style="padding: 0; border: none; background: none; margin-left: -16px;">Logout</button>
+		      </form>
+		  </li>
+
+          <!-- Guests only -->
+          <li class="nav-item" sec:authorize="isAnonymous()">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

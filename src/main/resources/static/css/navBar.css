@@ -13,8 +13,8 @@
 	align-items:center;
 	justify-content: space-between;
 	font-family: 'Poppins', sans-serif;
-	margin-bottom: 10;
-	padding-bottom: 10;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
 }
 
 .home-item {
@@ -27,9 +27,23 @@
 }
 
 .navbar-collapse {
-	display: flex-start;
-	justify-content: center;
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
+}
+
+.navbar-nav {
+	display: flex;
+	align-items: center;
+}
+
+.logout-shift-left {
+  margin-right: 16px; /* or margin-left: -16px; */
+}
+
+
+.navbar-nav.ms-auto .nav-item {
+	margin-left: 40px;
 }
 
 .bg-nav {
@@ -41,10 +55,6 @@
     margin: 0;
 	padding: 10px;
 	padding-bottom: 5px;
-}
-
-.nav-item {
-    margin-left: 25px;
 }
 
 .navbar .nav-link {
