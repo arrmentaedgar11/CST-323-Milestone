@@ -26,12 +26,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'Milestoneapp'   # your Web App name
+          app-name: 'Milestoneapp'   # Azure Web App name (case-sensitive)
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: 'Milestones/milestone/target/milestoneapp.jar'
-
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'Milestoneapp'  # your Web App name
-          slot-name: 'production'
           package: 'Milestones/milestone/target/milestoneapp.jar'
