@@ -1,0 +1,24 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ main, Main2 ]
+  pull_request:
+    branches: [ main, Main2 ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build with Maven (skip tests in CI)
+        run: mvn -B clean package -DskipTests
