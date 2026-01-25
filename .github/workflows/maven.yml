@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-   build-and-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,17 +20,14 @@ jobs:
           java-version: '21'
 
       - name: Build with Maven (skip tests in CI)
-        working-directory: Milestones/milestone
-        run: mvn -B clean package -DskipTests
+        run: mvn -f Milestones/milestone/pom.xml -B clean package -DskipTests
 
-      
       - name: Show target folder contents
-        working-directory: Milestones/milestone
-        run: ls -R target
+        run: ls -R Milestones/milestone/target
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'Milestoneapp'  
+          app-name: 'Milestoneapp'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: 'Milestones/milestone/target/*.jar'
