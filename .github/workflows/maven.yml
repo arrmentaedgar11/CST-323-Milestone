@@ -19,8 +19,21 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      # Debug what the runner actually sees
+      - name: Debug repo layout
+        run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          pwd
+          ls
+          echo "---- Milestones ----"
+          ls Milestones || echo "Milestones folder not found"
+          echo "---- Milestones/milestone ----"
+          ls Milestones/milestone || echo "Milestones/milestone folder not found"
+
       - name: Build with Maven (skip tests in CI)
-        run: mvn -f Milestones/milestone/pom.xml -B clean package -DskipTests
+        run: |
+          mvn -f "$GITHUB_WORKSPACE/Milestones/milestone/pom.xml" \
+              -B clean package -DskipTests
 
       - name: Show target folder contents
         run: ls -R Milestones/milestone/target
