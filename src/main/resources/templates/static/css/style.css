@@ -1,0 +1,33 @@
+/* Add space at the top */
+body {
+    padding-top: 60px;
+}
+
+/* Make brand in the navbar bold */
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* spacing between cards */
+.card {
+    margin-bottom: 20px;
+
+    /* subtle shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Smooth hover effect */
+    transition: transform 0.2s;
+}
+
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Ensure movie poster images are same size*/
+.card-img-top {
+    object-fit: cover;  
+    height: 180px;     
+    width: 100%;       
+    border-bottom: 1px solid #ddd;
+}
